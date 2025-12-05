@@ -1,0 +1,127 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .popular-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donate-options {
+        grid-template-columns: 1fr;
+    }
+
+    .transparency-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transparency-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calculator-input {
+        flex-direction: column;
+    }
+
+    .created-donations {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+
+    .created-card {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .user-menu.active {
+        position: static;
+        margin-top: 1rem;
+    }
+    
+    .user-menu-dropdown {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .transparency-stats {
+        grid-template-columns: 1fr;
+    }
+}

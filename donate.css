@@ -1,0 +1,701 @@
+/* Donate Section */
+.donate-section {
+    padding: 100px 0;
+    background: white;
+}
+
+.donate-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.donate-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.donate-card:hover::before {
+    opacity: 0.05;
+}
+
+.donate-card * {
+    position: relative;
+    z-index: 2;
+}
+
+.donate-card.featured {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: white;
+    transform: scale(1.05);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #22c55e;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.donate-card:hover {
+    transform: translateY(-10px);
+    border-color: #16a34a;
+    box-shadow: 0 20px 40px rgba(22, 163, 74, 0.2);
+}
+
+.donate-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.donate-icon {
+    font-size: 3rem;
+    color: #16a34a;
+    margin-bottom: 1.5rem;
+}
+
+.donate-card.featured .donate-icon {
+    color: white;
+}
+
+.donate-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #166534;
+}
+
+.donate-card.featured h3 {
+    color: white;
+}
+
+.donate-card p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.donate-card.featured p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.impact {
+    display: block;
+    color: #16a34a;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.donate-card.featured .impact {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Team Calculator */
+.team-calculator {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+.team-calculator h3 {
+    color: #166534;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.calculator-input {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: end;
+}
+
+.calculator-input .form-group {
+    flex: 1;
+}
+
+.calculator-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.calculator-input input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.calculator-input input:focus {
+    outline: none;
+    border-color: #16a34a;
+}
+
+.calculator-input input.error {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Team Results */
+.team-results {
+    margin-top: 2rem;
+}
+
+.team-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #e6f4ea;
+    box-shadow: 0 8px 25px rgba(6,95,70,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(6,95,70,0.15);
+}
+
+/* Created Donations - UPDATED FOR LARGER SIZE */
+.created-donations {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 4000;
+    max-width: calc(100vw - 40px);
+    overflow-x: auto;
+    padding: 8px;
+    pointer-events: auto;
+}
+
+.created-card {
+    width: 450px; /* Tăng từ 350px lên 450px */
+    max-height: 500px; /* Tăng từ 400px lên 500px */
+    overflow-y: auto;
+    box-sizing: border-box;
+    background: linear-gradient(188deg, #ffffff, #ffffff);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.35s, opacity 0.35s;
+    margin: 0;
+}
+
+.created-card.enter {
+    transform: translateY(8px) scale(0.98);
+    opacity: 0;
+}
+
+.created-card.enter-active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.created-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0fdf4;
+}
+
+.created-title {
+    font-weight: 600;
+    color: #166534;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.created-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.created-close:hover {
+    background: #f0fdf4;
+    color: #ef4444;
+}
+
+.created-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.created-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.created-form input,
+.created-form select,
+.created-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.created-form input:focus,
+.created-form select:focus,
+.created-form textarea:focus {
+    outline: none;
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.created-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.created-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.created-row .form-group {
+    flex: 1;
+}
+
+.created-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.created-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.4);
+}
+
+.created-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.created-thank {
+    color: #16a34a;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem;
+    background: #f0fdf4;
+    border-radius: 10px;
+    display: none;
+}
+
+/* Bank Transfer Section */
+.bank-transfer-section,
+.e-wallet-section,
+.cash-section {
+    background: #f8fffe;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border: 2px solid #e6f4ea;
+}
+
+.bank-info-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed #d1fae5;
+}
+
+.bank-info-header h4 {
+    color: #166534;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.bank-info-header p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Bank Accounts List */
+.bank-accounts-list {
+    max-height: 250px;
+    overflow-y: auto;
+    margin: 1rem 0;
+    padding-right: 5px;
+}
+
+.bank-account-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e6f4ea;
+    transition: all 0.3s ease;
+}
+
+.bank-account-card.active {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.1);
+}
+
+.bank-account-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bank-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.bank-logo i {
+    font-size: 1.5rem;
+    color: #16a34a;
+}
+
+.bank-name {
+    font-weight: 600;
+    color: #166534;
+    font-size: 1.1rem;
+}
+
+.bank-details p {
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bank-details strong {
+    color: #166534;
+    min-width: 120px;
+}
+
+.account-number,
+.account-holder,
+.bank-branch {
+    font-weight: 500;
+    color: #374151;
+}
+
+.transfer-content {
+    background: #f3f4f6;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* Transfer Steps */
+.transfer-steps {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+    border: 2px solid #e6f4ea;
+}
+
+.transfer-steps h5 {
+    color: #166534;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.steps-list {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #374151;
+}
+
+.steps-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.steps-list li:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+/* E-Wallet Section */
+.e-wallet-section .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.wallet-info {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.wallet-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e6f4ea;
+    transition: all 0.3s ease;
+}
+
+.wallet-card.active {
+    border-color: #16a34a;
+    background: #f0fdf4;
+}
+
+.wallet-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.wallet-logo i {
+    font-size: 1.5rem;
+}
+
+.wallet-name {
+    font-weight: 600;
+    color: #166534;
+    font-size: 1.1rem;
+}
+
+.wallet-details p {
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wallet-details strong {
+    color: #166534;
+    min-width: 120px;
+}
+
+/* Cash Section */
+.cash-info {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.cash-info p:first-child {
+    color: #166534;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.cash-info ul {
+    margin: 1rem 0 1rem 1.5rem;
+    color: #374151;
+}
+
+.cash-info li {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.cash-info .note {
+    background: #fef3c7;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #92400e;
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+/* Confirm Transfer Checkbox */
+.confirm-transfer {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: #f8fffe;
+    border-radius: 8px;
+    border: 2px solid #e6f4ea;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-transfer:hover {
+    border-color: #16a34a;
+    background: #f0fdf4;
+}
+
+.confirm-transfer input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.2rem;
+    accent-color: #16a34a;
+}
+
+.confirm-transfer span {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.4;
+}
+
+/* Scrollbar Styling */
+.created-card::-webkit-scrollbar,
+.bank-accounts-list::-webkit-scrollbar,
+.wallet-info::-webkit-scrollbar {
+    width: 8px;
+}
+
+.created-card::-webkit-scrollbar-track,
+.bank-accounts-list::-webkit-scrollbar-track,
+.wallet-info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.created-card::-webkit-scrollbar-thumb,
+.bank-accounts-list::-webkit-scrollbar-thumb,
+.wallet-info::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.created-card::-webkit-scrollbar-thumb:hover,
+.bank-accounts-list::-webkit-scrollbar-thumb:hover,
+.wallet-info::-webkit-scrollbar-thumb:hover {
+    background: #16a34a;
+}
+
+/* Responsive for Created Cards */
+@media (max-width: 768px) {
+    .created-donations {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .created-card {
+        width: 100%;
+        min-width: auto;
+        max-height: 80vh;
+    }
+    
+    .created-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .bank-accounts-list,
+    .wallet-info {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .created-card {
+        padding: 1.2rem;
+    }
+    
+    .bank-transfer-section,
+    .e-wallet-section,
+    .cash-section {
+        padding: 1rem;
+    }
+    
+    .bank-account-card,
+    .wallet-card {
+        padding: 1rem;
+    }
+}
